@@ -1,1 +1,222 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Selamat Datang — ProjectKu</title>
+  <style>
+    :root{
+      --bg1: #6a11cb;
+      --bg2: #2575fc;
+      --card: rgba(255,255,255,0.95);
+      --glass: rgba(255,255,255,0.08);
+      --text: #0f1724;
+      --muted: #334155;
+      --accent: #ffdd57;
+    }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      transition: background 350ms ease;
+    }
+    .container{
+      width:100%;
+      max-width:960px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+      border-radius:16px;
+      box-shadow: 0 10px 30px rgba(11,22,50,0.35);
+      overflow:hidden;
+      backdrop-filter: blur(6px);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:0;
+    }
+    .hero{
+      padding:3.25rem;
+      color: white;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:1rem;
+      background:
+        radial-gradient(600px 200px at 10% 10%, rgba(255,255,255,0.04), transparent 10%),
+        linear-gradient(120deg, rgba(255,255,255,0.03), transparent 40%);
+    }
+    h1{ font-size:2.25rem; margin:0 0 0.25rem 0; letter-spacing:-0.02em; }
+    p.lead{ margin:0; opacity:0.95; color: rgba(255,255,255,0.92); }
+    .cta{
+      margin-top:1.25rem;
+      display:flex;
+      gap:0.75rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:0;
+      padding:0.7rem 1rem;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      display:inline-flex;
+      gap:0.5rem;
+      align-items:center;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#07203a;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+    .panel{
+      padding:2rem;
+      background: rgba(255,255,255,0.9);
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      align-items:stretch;
+    }
+    label{ font-size:0.85rem; color:var(--muted); }
+    input[type="text"]{
+      padding:0.6rem 0.8rem;
+      border-radius:8px;
+      border:1px solid rgba(15,23,36,0.06);
+      font-size:1rem;
+      outline:none;
+      width:100%;
+    }
+    small{ color:var(--muted); }
+    .welcome-card{
+      padding:1rem;
+      border-radius:10px;
+      background:var(--card);
+      box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+      text-align:center;
+    }
+    .hidden{ display:none; }
+    footer{
+      font-size:0.85rem;
+      color:var(--muted);
+      text-align:center;
+      padding:1rem 0;
+    }
+    .links a{ color: #0b838a; text-decoration:none; font-weight:600; }
+    @media (max-width:920px){
+      .container{ grid-template-columns:1fr; }
+      .panel{ order:-1; }
+    }
 
+    /* dark theme toggle */
+    body.dark{
+      --bg1:#0f1724;
+      --bg2:#071029;
+      color: #e6eef8;
+      --card: rgba(8,12,20,0.85);
+      --glass: rgba(255,255,255,0.02);
+      --text: #e6eef8;
+      --muted: #9fb4d1;
+      --accent: #ffd36b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="title">
+    <section class="hero" aria-hidden="false">
+      <h1 id="title">Selamat datang di ProjectKu</h1>
+      <p class="lead">Halaman ini adalah pintu masuk sederhana untuk proyek Anda — cepat, responsif, dan mudah disesuaikan.</p>
+
+      <div class="cta" aria-hidden="false">
+        <button id="startBtn" class="btn btn-primary" title="Mulai">Mulai</button>
+        <button id="themeBtn" class="btn btn-ghost" title="Ubah tema">Ubah Tema</button>
+        <div style="flex:1"></div>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="Kontrol">
+      <div>
+        <label for="nameInput">Halo! Masukkan nama Anda (opsional)</label>
+        <input id="nameInput" type="text" placeholder="Contoh: Budi" />
+        <small>Nama ini akan dipakai untuk menyapa Anda pada halaman selanjutnya.</small>
+      </div>
+
+      <div class="welcome-card" id="greetCard" aria-live="polite">
+        <strong id="greetTitle">Siap menjelajah?</strong>
+        <p id="greetText">Tekan "Mulai" untuk melihat penjelasan singkat dan tautan penting.</p>
+      </div>
+
+      <div style="margin-top:auto; font-size:0.85rem; color:var(--muted);">
+        <div>Repository: <a href="https://github.com/radityafirmansyah24/ProjectKu" target="_blank" rel="noopener">radityafirmansyah24/ProjectKu</a></div>
+        <div style="margin-top:0.5rem">Dibuat: otomatis — sesuaikan konten sesuai kebutuhan.</div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div id="mainContent" class="hidden">
+      <h3 style="margin:0 0 0.5rem 0;">Apa yang bisa dilakukan di sini</h3>
+      <ul style="margin:0 0 1rem 1.25rem; color:var(--muted)">
+        <li>Mengganti teks sambutan dan branding.</li>
+        <li>Menghubungkan ke halaman lain dalam proyek Anda.</li>
+        <li>Mengaktifkan deploy atau integrasi CI/CD bila diperlukan.</li>
+      </ul>
+      <div class="links">Lihat kode di <a href="https://github.com/radityafirmansyah24/ProjectKu" target="_blank" rel="noopener">GitHub</a> · © <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const startBtn = document.getElementById('startBtn');
+      const themeBtn = document.getElementById('themeBtn');
+      const nameInput = document.getElementById('nameInput');
+      const greetTitle = document.getElementById('greetTitle');
+      const greetText = document.getElementById('greetText');
+      const mainContent = document.getElementById('mainContent');
+      const year = document.getElementById('year');
+
+      year.textContent = new Date().getFullYear();
+
+      startBtn.addEventListener('click', () => {
+        const name = (nameInput.value || '').trim();
+        if (name) {
+          greetTitle.textContent = `Selamat datang, ${escapeHtml(name)}!`;
+          greetText.textContent = 'Semoga hari Anda menyenangkan — jelajahi proyek ini lebih jauh.';
+        } else {
+          greetTitle.textContent = 'Selamat datang!';
+          greetText.textContent = 'Terima kasih telah mengunjungi ProjectKu. Tekan tautan GitHub di bawah untuk melihat kode sumber.';
+        }
+        // reveal brief content in footer area
+        mainContent.classList.remove('hidden');
+        // focus link for keyboard users
+        const repoLink = document.querySelector('.links a');
+        if (repoLink) repoLink.focus();
+      });
+
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+      });
+
+      // Simple sanitizer for the small greeting (keeps it safe)
+      function escapeHtml(str){
+        return str.replace(/[&<>"]/g, function(c){
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+        });
+      }
+
+      // small UX: press Enter in input triggers start
+      nameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') startBtn.click();
+      });
+    })();
+  </script>
+</body>
+</html>
